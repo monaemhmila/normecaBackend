@@ -1,0 +1,296 @@
+<body>
+<!-- Home Banner solution for video autoplay -->
+<section class="section home-banner">
+  <div class="video-container"> 
+    <video  [muted]="'muted'" autoplay class="banner-video" #videoPlayer (ended)="onVideoEnded()">
+      <source src="assets/Normeca.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+
+<!-- /Home Banner Normeca.mp4 -->
+
+
+
+
+<section class="section review">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-12 mx-auto text-center">
+        <div class="section-header aos" data-aos="fade-up">
+          <h2 class="header-title">Notre specialite</h2>
+          
+        </div>
+      </div>
+      <div class="row">
+        
+        
+       
+        
+        <div class="col-lg-3 col-md-6 col-12 aos" data-aos="zoom-in" data-aos-duration="2000">
+          <div class="popular-catergories">
+            <div class="popular-catergories-img">
+              <span><img src="assets/img/icon/categories5.svg" alt="img" style="width: 50px; height: 50px;"></span>
+            </div>
+            
+            <div class="popular-catergories-content">
+              <h5>ASSEMBLAGE</h5>
+              <a href="javascript:void(0);">Et prémontage des éléments<i class="feather icon-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12 aos" data-aos="zoom-in" data-aos-duration="2000">
+          <div class="popular-catergories">
+            <div class="popular-catergories-img">
+              <span><img src="assets/img/icon/categories6.svg" alt="img" style="width: 50px; height: 50px;"></span>
+            </div>
+            
+            <div class="popular-catergories-content">
+              <h5>SOUDURE</h5>
+              <a href="javascript:void(0);"><i class="feather icon-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12 aos" data-aos="zoom-in" data-aos-duration="2000">
+          <div class="popular-catergories">
+            <div class="popular-catergories-img">
+              <span><img src="assets/img/icon/categories7.svg" alt="img" style="width: 50px; height: 50px;"></span>
+            </div>
+            
+            <div class="popular-catergories-content">
+              <h5>PLIAGE</h5>
+              <a href="javascript:void(0);">Façonner la tôle industriellement<i class="feather icon-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-12 aos" data-aos="zoom-in" data-aos-duration="2000">
+          <div class="popular-catergories">
+            <div class="popular-catergories-img">
+              <span><img src="assets/img/icon/categories8.svg" alt="img" style="width: 50px; height: 50px;"></span>
+            </div>
+            
+            <div class="popular-catergories-content">
+              <h5>DÉCOUPE LASER</h5>
+              <a href="javascript:void(0);">Précis et rapide<i class="feather icon-arrow-right ms-2"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--- Developed Project  -->
+<section class="section news pt-0 review-set">
+  <div class="container">
+    <div class="row">					
+      <!-- Feature Item -->
+      <div class="col-lg-6 col-md-12">
+        <div class="work-box bg1"  data-aos="zoom-in"  data-aos-duration="1000">
+          <div class="work-content">
+            <h2>Bureau  <span>d’études</span></h2>
+            <p>Notre bureau d'études utilise des professionnels qualifiés et des logiciels performants pour concrétiser efficacement les projets.</p>
+            <a class="btn btn-primary">Details</a>      <!-- [routerLink]="routes.freelancer_project"  -->
+
+          </div>
+        </div>
+      </div>
+      <!-- /Feature Item -->
+      <div class="col-lg-6 col-md-12">
+        <div class="work-box aos bg2"  data-aos="zoom-in"  data-aos-duration="2000">
+          <div class="work-content "> 
+          <h2>Gestion et Management <span>de Grands Projet</span></h2>
+          <p>NORMECA est capable de gérer des projets d’envergure et d’en assurer la traçabilité grâce à son système ERP «SAP».</p>
+          <a [routerLink]="routes.freelancer_project" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--- /Developed Project  -->
+
+<!-- Our Feature -->
+<section class="section projects pt-0">
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="work-set-image">
+          <div class="work-set">
+            <div class="recent-pro-img aos" data-aos="zoom-in" data-aos-duration="1000">
+              <img src="assets/img/work1.jpg" alt="Img" class="img-fluid ">
+            </div>
+          </div>
+          <div class="work-sets">
+            <div class="recent-pro-img">
+              <img src="assets/img/work2.jpg" alt="Img" class="img-fluid mb-2 aos" data-aos="zoom-in" data-aos-duration="2000">
+              <img src="assets/img/work3.jpg" alt="Img" class="img-fluid aos" data-aos="zoom-in" data-aos-duration="2500">
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      <div class="col-lg-6">
+        <div class="aos " data-aos="fade-up">
+          <div class="demand-professional">
+            <h2>Notre société NORMECA a une expérience de 33 ans dans le domaine de la mécano-soudure et la chaudronnerie de tôlerie fine inoxydable.</h2>
+            <p> savoir-faire, qualité, compétitivité, flexibilité et réactivité. </p>
+          </div>
+          <div class="demand-post-job">
+            <div class="demand-post-img">
+              <img src="assets/img/recent-icon-01.svg" alt="Img" class="img-fluid">
+            </div>
+            <div class="demand-content">
+              <p>Augmenter le taux de fidélisation de nos clients du secteur aéronautique par la satisfaction de de leurs exigences et garantir l’efficacité de nos services.</p>
+            </div>
+          </div>
+          <div class="demand-post-job">
+            <div class="demand-post-img">
+              <img src="assets/img/recent-icon-02.svg" alt="Img" class="img-fluid">
+            </div>
+            <div class="demand-content">
+              <p>Capitaliser sur nos expériences pour améliorer la satisfaction de nos clients.</p>
+            </div>
+          </div>
+          <div class="demand-post-job">
+            <div class="demand-post-img">
+              <img src="assets/img/recent-icon-03.svg" alt="Img" class="img-fluid">
+            </div>
+            <div class="demand-content">
+              <p>Après avoir mis en place le système de gestion ainsi que l’installation de la nouvelle machine de découpe laser Fibre, NORMECA compte acquérir de nouveaux clients pour augmenter considérablement son chiffre d’affaires.</p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    
+<!-- Top Instructor -->
+<section class="section developer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-12 mx-auto text-center">
+        <div class="section-header aos" data-aos="fade-up">
+          <h2 class="header-title">NOS PRODUITS PHARES</h2>
+        </div>
+      </div>
+    </div>
+    
+    <div id="developers-slider">
+      <owl-carousel-o
+        [options]="customOptions"
+        class="developers-slider aos"
+        data-aos="fade-up"
+      >
+        <ng-container *ngFor="let slide of clinicsslides">
+          <ng-template carouselSlide>
+            <div class="freelance-widget">
+              <div class="freelance-content">
+                
+                <div class="freelance-img">
+                  <a ><!--- [routerLink]="'/freelancer/developers-details'" -->
+                    <img src="{{ slide.img }}" alt="User Image" />
+                    
+                  </a>
+                </div>
+                <div class="freelance-info">
+                  <h3>
+                    <a >{{
+                      slide.name
+                    }}</a>
+                  </h3><!--- [routerLink]="'/freelancer/developers-details'" -->
+                  <div class="freelance-specific">{{ slide.department }}</div>
+                  
+                 
+                  
+                  
+                </div>
+              </div>
+              <div class="cart-hover">
+                <a
+                  
+                  class="btn-cart"
+                  tabindex="-1"
+                  >details</a
+                ><!--- [routerLink]="'/freelancer/developers-details'" -->
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+</section>
+<!-- End Developer -->
+
+
+<!-- Top Instructor -->
+
+
+<section class="section testimonial-section review">
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <div class="section-header aos text-center" data-aos="fade-up">
+        <h2 class="header-title">Savoir faire</h2>
+      </div>
+    </div>
+  </div>
+  <owl-carousel-o [options]="customOptions">
+    <ng-container *ngFor="let slide of aboutusslides">
+        <ng-template carouselSlide>
+            <div class="review-blog">
+                <div class="review-top d-flex align-items-center">
+                    <div class="review-img">
+                       <!--  <a><img class="img-fluid" src="{{slide.img}}" alt="Post Image"></a> -->
+
+                    </div>
+                    <div class="review-info">
+                        <h3> {{slide.name}}</h3>
+                        <h5>{{slide.officer}}</h5>								
+                       
+                    </div>
+                    <div class="test-quote-img">
+                      <img class="img-fluid" src="assets/img/test-quote.svg" alt="quote">
+                    </div>
+                </div>
+                <div class="review-content">
+                    <p>{{slide.para}}</p>
+                    
+                </div>
+            </div>
+        </ng-template>
+    </ng-container>
+</owl-carousel-o>
+</div>
+</section>
+<!-- End Developer 
+<section class="section subscribe">
+  <div class="bg-img">
+    <img src="assets/img/bg/bg3.png" class="bg-img3" alt="img">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-12 mx-auto ">
+        <div class="section-header aos text-center" data-aos="fade-up">
+          <h2 class="header-title">Newsletter</h2>
+          <p>INSCRIVEZ-VOUS À NORMECA ET RECEVEZ NOS ACTUALITÉS</p>
+        </div>
+      </div>
+      <div class="subscribe-form aos " data-aos="fade-up">
+        <input type="text" placeholder="Email">
+        <a href="javascript:void(0);" class="btn btn-sub">INSCRIRE</a>
+      </div>
+    </div>
+    
+  </div>
+</section>-->
+</body>

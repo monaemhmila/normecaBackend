@@ -1,0 +1,307 @@
+<!-- Breadcrumb -->
+<div class="bread-crumb-bar">
+    <div class="container">
+        <div class="row align-items-center inner-banner">
+            <div class="col-md-12 col-12 text-center">
+                <div class="breadcrumb-list">
+                    <h3>Project Grid</h3>
+                    <nav aria-label="breadcrumb" class="page-breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Projects</li>
+                        </ol>
+                    </nav>
+                </div>
+				
+            </div>
+			
+        </div>
+    </div>
+</div>
+
+<!-- <div class="row">
+						<div class="col-md-12">
+							<ul class="nav nav-tabs justify-content-end" id="categoryTabs" role="tablist">
+								<li class="nav-item" role="presentation">
+									<button class="nav-link active " id="category1-tab" data-bs-toggle="tab" data-bs-target="#category1" type="button" role="tab" aria-controls="category1" aria-selected="true">Category 1</button>
+								</li>
+								<li class="nav-item" role="presentation">
+									<button class="nav-link " id="category2-tab" data-bs-toggle="tab" data-bs-target="#category2" type="button" role="tab" aria-controls="category2" aria-selected="false">Category 2</button>
+								</li>
+							</ul>
+						</div>
+					</div>/Breadcrumb -->
+
+<!-- Page Content -->
+<div class="content">
+	<div class="container">
+		
+		<div class="row">
+			
+			<div class="col-md-12 col-lg-4 col-xl-3 theiaStickySidebar">
+
+				<!-- Search Filter -->
+				<div class="card search-filter">
+					<div class="card-header d-flex justify-content-between">
+						<h4 class="card-title mb-0">Filtre de recherche</h4>
+					</div>
+					<div class="card-body">
+						<div class="filter-widget"  (click)="openModal()">
+							<h4 class="filter-title" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="true" aria-controls="collapse">
+								<a href="javascript:void(0);" class="w-100">
+									Industry
+									<span class="float-end"><i id="materialIcon" class="fa-solid fa-chevron-right"></i></span>
+								</a>
+							</h4>
+
+						</div>
+						<!-- Material Filter -->
+						<div class="filter-widget">
+							<h4 class="filter-title" data-bs-toggle="collapse" data-bs-target="#collapseMaterial" aria-expanded="true" aria-controls="collapseMaterial">
+								<a href="javascript:void(0);" class="w-100">
+									Material
+									<span class="float-end"><i id="materialIcon" class="fa-solid fa-chevron-down"></i></span>
+								</a>
+							</h4>
+							<div id="collapseMaterial" class="collapse" data-bs-parent="#accordionExample1">
+								<div *ngFor="let material of materialFilters">
+									<label class="custom_check">
+										<input type="checkbox" [(ngModel)]="material.selected">
+										<span class="checkmark"></span> {{ material.name }}
+									</label>
+								</div>
+							</div>
+						</div>
+						<!-- typeProductFilters Filter -->
+						<div class="filter-widget">
+							<h4 class="filter-title" data-bs-toggle="collapse" data-bs-target="#collapseTypeProduct" aria-expanded="true" aria-controls="collapseTypeProduct">
+								<a href="javascript:void(0);" class="w-100">
+									Type de produit
+									<span class="float-end"><i id="typeProductIcon" class="fa-solid fa-chevron-down"></i></span>
+								</a>
+							</h4>
+							<div id="collapseTypeProduct" class="collapse" data-bs-parent="#accordionExample1">
+								<div *ngFor="let produit of typeProductFilters">
+									<label class="custom_check">
+										<input type="checkbox" [(ngModel)]="produit.selected">
+										<span class="checkmark"></span> {{ produit.name }}
+									</label>
+								</div>
+							</div>
+						</div>
+						<!-- industryFilters Filter -->
+						<div class="filter-widget">
+							<h4 class="filter-title" data-bs-toggle="collapse" data-bs-target="#collapseIndustry" aria-expanded="true" aria-controls="collapseIndustry">
+								<a href="javascript:void(0);" class="w-100">
+									Application dans le Domain
+									<span class="float-end"><i id="industryIcon" class="fa-solid fa-chevron-down"></i></span>
+								</a>
+							</h4>
+							<div id="collapseIndustry" class="collapse" data-bs-parent="#accordionExample1">
+								<div *ngFor="let industry of industryFilters">
+									<label class="custom_check">
+										<input type="checkbox" [(ngModel)]="industry.selected">
+										<span class="checkmark"></span> {{ industry.name }}
+									</label>
+								</div>
+							</div>
+						</div>
+						<!-- Search Button -->
+						<div class="btn-search">
+							<button type="button" class="btn btn-primary" (click)="applyFilter()">Search</button>
+							<button type="button" class="btn btn-block" (click)="applyFilter()">Reset</button>
+						</div>
+					</div>
+				</div>
+				
+				
+				
+				<!-- /Search Filter -->
+
+			</div>
+
+			<div class="col-md-12 col-lg-8 col-xl-9">
+				
+				<div class="row">
+					<!-- Project Content -->
+				<!-- Search Bar -->
+				<!-- Search Bar -->
+				
+				
+				<div class="search-bar">
+					<input type="text" [(ngModel)]="searchTerm" placeholder="Search projects..." class="form-control" (input)="onSearchInputChange()">
+				  </div>
+				  
+  <!-- /Search Bar -->
+  
+  <!-- /Search Bar -->
+  
+					<div class="col-lg-3 col-md-6 appear" *ngFor="let Article of filteredArticles; let i = index">
+						<div class="freelance-widget widget-author position-relative">
+						  <div class="freelance-content">
+						  <div class="author-heading">
+							<div class="freelance-img">
+							  <a href="javascript:void(0);">
+								<img
+								  class="me-2"
+								  [src]="getFullImageUrl(Article.Photo)"
+								  alt="Category Image"
+								/>
+							  </a>
+							</div>
+							<div class="profile-name">
+							  <div class="author-location">{{ Article.Reference }}</div>
+							</div>
+							<div class="freelance-info">
+							  <h3><ng-container *ngIf="isCategoryObject(Article.Categorie); ">
+								{{ Article.Categorie.Libelle }}
+							  </ng-container></h3>
+							  
+							</div>
+							<div class="freelance-tags">
+							  <span class="badge badge-pill badge-design">{{ Article.Designation }}</span>
+							</div>
+						  </div>
+						 
+						</div>
+						<div class="cart-hover">
+							<a [routerLink]="" (click)="viewProjectDetails(Article)"  class="btn-cart" tabindex="-1">View Project</a>
+						</div>
+						
+					  </div>
+					</div>
+				  </div>
+				  
+
+				<div class="row">
+					<div class="col-md-12">
+						<ul class="paginations list-pagination">
+							<li class="page-item"><a href="javascript:void(0);"><i class="feather icon-chevron-left"></i></a>
+							</li>
+							<li class="page-item"><a href="javascript:void(0);" class="active">1</a></li>
+							<li class="page-item"><a href="javascript:void(0);">2</a></li>
+							<li class="page-item"><a href="javascript:void(0);">3</a></li>
+							<li class="page-item"><a href="javascript:void(0);">...</a></li>
+							<li class="page-item"><a href="javascript:void(0);">10</a></li>
+							<li class="page-item"><a href="javascript:void(0);"><i
+										class="feather icon-chevron-right"></i></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- /Page Content -->
+
+<!-- The Modal -->
+<div class="modal fade custom-modal" #categoryModal tabindex="-1" aria-labelledby="add-category-label" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl"> <!-- Change modal-xl to modal-lg or modal-sm for different sizes -->
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Select industry</h4>
+                <button type="button" class="close" data-bs-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-12 aos" data-aos="zoom-in" data-aos-duration="2000">
+                                <div class="popular-catergories">
+                                    <div class="popular-catergories-img">
+                                        <span><img src="assets/img/icon/categories1.svg" alt="img" style="width: 50px; height: 50px;"></span>
+                                    </div>
+                                    <div class="popular-catergories-content">
+                                        <h5>Agroalimentaire</h5>
+                                        <a href="javascript:void(0);">Agroalimentaire<i class="feather icon-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-12 aos" data-aos="zoom-in" data-aos-duration="2000">
+                                <div class="popular-catergories">
+                                    <div class="popular-catergories-img">
+                                        <span><img src="assets/img/icon/categories8.svg" alt="img" style="width: 50px; height: 50px;"></span>
+                                    </div>
+                                    <div class="popular-catergories-content">
+                                        <h5>Pharmaceutique</h5>
+                                        <a href="javascript:void(0);">Pharmaceutique<i class="feather icon-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-12 aos" data-aos="zoom-in" data-aos-duration="2000">
+                                <div class="popular-catergories">
+                                    <div class="popular-catergories-img">
+                                        <span><img src="assets/img/icon/categories3.svg" alt="img" style="width: 50px; height: 50px;"></span>
+                                    </div>
+                                    <div class="popular-catergories-content">
+                                        <h5>Chimique</h5>
+                                        <a href="javascript:void(0);">Chimique<i class="feather icon-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-12 aos" data-aos="zoom-in" data-aos-duration="2000">
+                                <div class="popular-catergories">
+                                    <div class="popular-catergories-img">
+                                        <span><img src="assets/img/icon/categories4.svg" alt="img" style="width: 50px; height: 50px;"></span>
+                                    </div>
+                                    <div class="popular-catergories-content">
+                                        <h5>Automobile</h5>
+                                        <a href="javascript:void(0);">Automobile<i class="feather icon-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-12 aos" data-aos="zoom-in" data-aos-duration="2000">
+                                <div class="popular-catergories">
+                                    <div class="popular-catergories-img">
+                                        <span><img src="assets/img/icon/categories5.svg" alt="img" style="width: 50px; height: 50px;"></span>
+                                    </div>
+                                    <div class="popular-catergories-content">
+                                        <h5>Aérospatiale et de Défense</h5>
+                                        <a href="javascript:void(0);">Aérospatiale<i class="feather icon-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-12 aos" data-aos="zoom-in" data-aos-duration="2000">
+                                <div class="popular-catergories">
+                                    <div class="popular-catergories-img">
+                                        <span><img src="assets/img/icon/categories6.svg" alt="img" style="width: 50px; height: 50px;"></span>
+                                    </div>
+                                    <div class="popular-catergories-content">
+                                        <h5>Énergie</h5>
+                                        <a href="javascript:void(0);">Énergie<i class="feather icon-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-6 col-12 aos" data-aos="zoom-in" data-aos-duration="2000">
+                                <div class="popular-catergories">
+                                    <div class="popular-catergories-img">
+                                        <span><img src="assets/img/icon/categories7.svg" alt="img" style="width: 50px; height: 50px;"></span>
+                                    </div>
+                                    <div class="popular-catergories-content">
+                                        <h5>Environnement</h5>
+                                        <a href="javascript:void(0);">Environnement<i class="feather icon-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+							<div class="col-lg-3 col-md-6 col-12 aos" data-aos="zoom-in" data-aos-duration="2000">
+                                <div class="popular-catergories">
+                                    <div class="popular-catergories-img">
+                                        <span><img src="assets/img/icon/categories7.svg" alt="img" style="width: 50px; height: 50px;"></span>
+                                    </div>
+                                    <div class="popular-catergories-content">
+                                        <h5>Securite</h5>
+                                        <a href="javascript:void(0);">Securite<i class="feather icon-arrow-right ms-2"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- /The Modal -->

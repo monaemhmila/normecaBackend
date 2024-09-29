@@ -1,0 +1,115 @@
+.freelance-content {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .freelance-img {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  .freelance-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  @keyframes appearAnimation {
+    from {
+      opacity: 0;
+      transform: translateY(200px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+                                               
+  .appear {
+    animation: appearAnimation 2s ease-out;
+  }
+
+  .nav-link {
+    padding: 10px 20px; /* Adjust padding as needed */
+    border-radius: 5px; /* Make the buttons more round */
+    font-size: 18px; /* Increase font size for better visibility */
+  }
+
+  .search-bar {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  input {
+    flex: 1;
+    padding: 8px;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+
+  button {
+    height: 38px;
+    background-color: #3449a1;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  button:hover {  
+    background-color: #2c3b87;
+  }
+
+  
+  
+}
+.freelance-content {
+  position: relative;
+  z-index: 1;
+}
+
+.freelance-img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.freelance-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.filter-widget-container {
+  display: flex;
+  justify-content: center;
+}
+
+.filter-widget.highlighted {
+  background-color: #ffc107; /* Yellow background color */
+  border-radius: 10px; /* Rounded corners for better visual appeal */
+  padding: 15px; /* Add padding for spacing */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  transition: all 0.3s ease; /* Smooth transition effect */
+}
+
+.filter-widget.highlighted:hover {
+  transform: scale(1.05); /* Scale up on hover for a subtle animation */
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3); /* Increase shadow intensity */
+}
+
+.filter-widget.highlighted .filter-title a {
+  color: #212529; /* Dark text color */
+  text-decoration: none; /* Remove default underline */
+}
+
+.filter-widget.highlighted .filter-title a:hover {
+  text-decoration: underline; /* Underline on hover for interactive feedback */
+}

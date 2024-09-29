@@ -1,0 +1,16 @@
+.image-preview {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-preview-item {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+textarea {
+    height: auto;
+    max-height: none;
+    overflow-y: hidden; /* Hide vertical scrollbar */
+}
+

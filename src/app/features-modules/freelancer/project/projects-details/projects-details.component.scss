@@ -1,0 +1,17 @@
+#zoom-container {
+    position: relative;
+    overflow: hidden;
+}
+
+#zoom-image {
+    transition: transform 0.3s ease-in-out;
+}
+
+#zoom-container:hover #zoom-image {
+    transform: scale(1.25); /* Zoom on hover */
+    cursor: zoom-in; /* Change cursor to zoom-in on hover */
+}
+
+#zoom-container.clicked #zoom-image {
+    transform: scale(3); /* Additional zoom on click */
+}

@@ -1,0 +1,398 @@
+<!-- Breadcrumb -->
+<div class="bread-crumb-bar">
+	<div class="container">
+	  <div class="row align-items-center inner-banner">
+		<div class="col-md-12 col-12 text-center">
+		  <div class="breadcrumb-list">
+			<h2>Blog List</h2>
+			<nav aria-label="breadcrumb" class="page-breadcrumb">
+			  <ol class="breadcrumb">
+				<li class="breadcrumb-item"><a [routerLink] = "routes.home"> Home</a></li>
+				<li class="breadcrumb-item" aria-current="page">Blog List</li>
+			  </ol>
+			</nav>
+		  </div>
+		</div>
+	  </div>
+	</div>
+  </div>
+  <!-- /Breadcrumb -->
+
+<!-- Other Info 
+						<div class="on-board field-card select-account select-btn"
+							[class.d-block]="selectedFieldSet[0] === 3">
+							<div class="text-center onboard-head">
+								<h2>Other info</h2>
+								<p>Don’t worry, this can be changed later.</p>
+							</div>
+							<div class="field-item personal-info">
+								<div class="media-set">
+									<div class="row">
+										<div class="col-md-12">
+											<h4>Social Media</h4>
+										</div>
+										<div class="col-md-4">
+											<div class="input-block">
+												<label for="facebook" class="form-label">Facebook</label>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="input-block">
+												<label for="instagram" class="form-label">Instagram </label>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="input-block">
+												<label for="linkedin" class="form-label">LinkedIn </label>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="input-block">
+												<label for="behance" class="form-label">Behance </label>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="input-block">
+												<label for="pinterest" class="form-label">Pinterest </label>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+										<div class="col-md-4">
+											<div class="input-block">
+												<label for="twitter" class="form-label">Twitter</label>
+												<input type="text" class="form-control">
+											</div>
+										</div>
+
+									</div>
+								</div>
+								<div>
+									<div class="media-set">
+										<div class="row">
+											<div class="col-md-12">
+												<h4>Personal Website</h4>
+											</div>
+											<div class="col-md-12">
+												<div class="input-block">
+													<label for="website-url" class="form-label">Website Url</label>
+													<input type="text" class="form-control">
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="media-set">
+										<div class="row">
+											<div class="col-md-12">
+												<h4>Location</h4>
+											</div>
+											<div class="col-md-12">
+												<div class="input-block">
+													<label for="address" class="form-label">Address</label>
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="input-block">
+													<label for="city" class="form-label">City</label>
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="input-block">
+													<label for="state" class="form-label">State / Province</label>
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="input-block">
+													<label for="post-code" class="form-label">ZIP / Post Code</label>
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-3">
+												<div class="input-block">
+													<label for="post-code" class="form-label">ZIP / Post Code</label>
+													<mat-select [(ngModel)]="selectedValue7"
+														[ngModelOptions]="{standalone: true}"
+														class="select mat-select arrow verify" placeholder="Select">
+														<mat-option *ngFor="let data of selectedList7"
+															[value]="data.value">
+															{{data.value}}
+														</mat-option>
+													</mat-select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="media-set">
+										<div class="row">
+											<div class="col-md-12">
+												<h4>KYC Upload</h4>
+											</div>
+											<div class="col-md-6">
+												<div class="input-block">
+													<label for="document-type" class="form-label">Document Type</label>
+													<mat-select [(ngModel)]="selectedValue8"
+														[ngModelOptions]="{standalone: true}"
+														class="select mat-select arrow verify" placeholder="Select">
+														<mat-option *ngFor="let data of selectedList8"
+															[value]="data.value">
+															{{data.value}}
+														</mat-option>
+													</mat-select>
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="input-block">
+													<label for="document-number" class="form-label">Document Number</label>
+													<input type="text" class="form-control">
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="input-block">
+													<label for="document-number" class="form-label">Document Number</label>
+													<div class="upload-sets">
+														<label class="upload-filesview">
+															Browse File
+															<input type="file">
+														</label>
+														<h6>Or Drag & Drop here</h6>
+													</div>
+													<span class="text-success"><i class="fa fa-check-circle me-2"
+															aria-hidden="true"></i>Passport.jpg Uploaded
+														Successfully</span>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="media-set border-0">
+										<div class="row">
+											<div class="col-md-12">
+												<h4>Working Hours</h4>
+											</div>
+											<div class="col-md-6">
+												<div class="input-block d-flex">
+													<div
+														class="form-check form-switch d-inline-block work-check position-relative">
+														<input type="checkbox" class="form-check-input" id="check_hour"
+															checked="" [(ngModel)]="isCheckboxChecked"
+															[ngModelOptions]="{standalone: true}">
+													</div>
+													<label for="every-day" class="form-label ms-2">Same Every Day</label>
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="checkout-hour"
+													[ngClass]="{'d-block': isCheckboxChecked, 'd-none': !isCheckboxChecked}">
+													<div class="other-info-list">
+														<ul>
+															<li class="active-hour">Mon</li>
+															<li class="active-hour">Tue</li>
+															<li class="active-hour">Wed</li>
+															<li class="active-hour">Thr</li>
+															<li class="active-hour">Fri</li>
+															<li>Sat</li>
+															<li>Sun</li>
+														</ul>
+													</div>
+												</div>
+												<div class="check-hour"
+													[ngClass]="{'d-none': isCheckboxChecked, 'd-block': !isCheckboxChecked}">
+													<div class="col-md-12">
+														<h4>Select Days</h4>
+													</div>
+													<div class="row">
+														<div class="col-md-12">
+															<div class="row align-items-center">
+																<div class="col-md-1">
+																	<div class="other-info-list">
+																		<ul>
+																			<li class="active-hour m-0">Mon</li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="col-md-5">
+																	<div class="input-block">
+																		<label for="start-time" class="form-label">Start Time </label>
+																		<input type="text" class="form-control"
+																			value="8:00">
+																	</div>
+																</div>
+																<div class="col-md-5">
+																	<div class="input-block">
+																		<label for="end-time" class="form-label">End Time </label>
+																		<input type="text" class="form-control"
+																			value="20:00">
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-12">
+															<div class="row align-items-center">
+																<div class="col-md-1">
+																	<div class="other-info-list">
+																		<ul>
+																			<li class="active-hour m-0">Tue</li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="col-md-5">
+																	<div class="input-block">
+																		<label for="start-time" class="form-label">Start Time </label>
+																		<input type="text" class="form-control"
+																			value="8:00">
+																	</div>
+																</div>
+																<div class="col-md-5">
+																	<div class="input-block">
+																		<label for="end-time" class="form-label">End Time </label>
+																		<input type="text" class="form-control"
+																			value="20:00">
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-12">
+															<div class="row align-items-center">
+																<div class="col-md-1">
+																	<div class="other-info-list">
+																		<ul>
+																			<li class="active-hour m-0">Wed</li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="col-md-5">
+																	<div class="input-block">
+																		<label for="start-time" class="form-label">Start Time </label>
+																		<input type="text" class="form-control"
+																			value="8:00">
+																	</div>
+																</div>
+																<div class="col-md-5">
+																	<div class="input-block">
+																		<label for="end-time" class="form-label">End Time </label>
+																		<input type="text" class="form-control"
+																			value="20:00">
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-12">
+															<div class="row align-items-center">
+																<div class="col-md-1">
+																	<div class="other-info-list">
+																		<ul>
+																			<li class="active-hour m-0">Thur</li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="col-md-5">
+																	<div class="input-block">
+																		<label for="start-time" class="form-label">Start Time </label>
+																		<input type="text" class="form-control"
+																			value="8:00">
+																	</div>
+																</div>
+																<div class="col-md-5">
+																	<div class="input-block">
+																		<label for="end-time" class="form-label">End Time </label>
+																		<input type="text" class="form-control"
+																			value="20:00">
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-12">
+															<div class="row align-items-center">
+																<div class="col-md-1">
+																	<div class="other-info-list">
+																		<ul>
+																			<li class="active-hour m-0">Fri</li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="col-md-5">
+																	<div class="input-block">
+																		<label for="start-time" class="form-label">Start Time </label>
+																		<input type="text" class="form-control"
+																			value="8:00">
+																	</div>
+																</div>
+																<div class="col-md-5">
+																	<div class="input-block">
+																		<label for="end-time" class="form-label">End Time </label>
+																		<input type="text" class="form-control"
+																			value="20:00">
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-12">
+															<div class="row align-items-center">
+																<div class="col-md-1">
+																	<div class="other-info-list">
+																		<ul>
+																			<li class="m-0">Fri</li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="col-md-5">
+																	<div class="input-block">
+																		<label for="start-time" class="form-label">Start Time </label>
+																		<input type="text" class="form-control"
+																			value="8:00">
+																	</div>
+																</div>
+																<div class="col-md-5">
+																	<div class="input-block">
+																		<label for="end-time" class="form-label">End Time </label>
+																		<input type="text" class="form-control"
+																			value="20:00">
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="col-md-12">
+															<div class="row align-items-center">
+																<div class="col-md-1">
+																	<div class="other-info-list">
+																		<ul>
+																			<li class="m-0">Sun</li>
+																		</ul>
+																	</div>
+																</div>
+																<div class="col-md-5">
+																	<div class="input-block">
+																		<label for="start-time" class="form-label">Start Time </label>
+																		<input type="text" class="form-control"
+																			value="8:00">
+																	</div>
+																</div>
+																<div class="col-md-5">
+																	<div class="input-block">
+																		<label for="end-time" class="form-label">End Time </label>
+																		<input type="text" class="form-control"
+																			value="20:00">
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="text-center">
+								<input class="btn btn-prev prev_btn btn-back" name="next" type="button" value="Back"
+									(click)="selectedFieldSet[0] = 2" (keydown.enter)="selectedFieldSet[0] = 2">
+								<input class="btn next_btn btn-primary btn-get btn-next" name="next" type="button"
+									value="Submit" (click)="selectedFieldSet[0] = 4" (keydown.enter)="selectedFieldSet[0] = 4">
+							</div>
+						</div>
+						 /Other Info -->
