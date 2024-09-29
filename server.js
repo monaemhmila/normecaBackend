@@ -18,6 +18,10 @@ app.use(cors());
 // Serve the Angular build from the 'NORMECA-angular' folder
 app.use(express.static(path.join(__dirname, 'NORMECA-angular')));
 
+const port = 3000;
+
+app.use(express.json());
+
 // API routes
 app.use("/api/user", userRoutes);
 app.use("/api/category", categoryRoutes);
@@ -31,5 +35,7 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'NORMECA-angular', 'index.html'));
 });
 
-// Export the app for Vercel
-module.exports = app;
+// Start the backend server
+app.listen(port, () => {
+    console.log(`Server listening at http://localhost:${port}`);
+});
