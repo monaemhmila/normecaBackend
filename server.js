@@ -1,13 +1,13 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const path = require('path');
+const path = require("path");
 const { mongoose, connectDB } = require("./Middleware/connect");
 const userRoutes = require("./Routes/admin");
-const categoryRoutes = require('./Routes/category');
-const articleRoutes = require('./Routes/article');
-const blogsRoutes = require('./Routes/blogs');
-const contactRoutes = require('./Routes/contact');
+const categoryRoutes = require("./Routes/category");
+const articleRoutes = require("./Routes/article");
+const blogsRoutes = require("./Routes/blogs");
+const contactRoutes = require("./Routes/contact");
 
 const app = express();
 
@@ -18,9 +18,7 @@ app.use(cors());
 // Serve the Angular build from the 'NORMECA-angular' folder
 app.use(express.static(path.join(__dirname, 'NORMECA-angular')));
 
-const port = 3000;
-
-app.use(express.json());
+const port = process.env.PORT || 3000; // Use the port specified by Vercel
 
 // API routes
 app.use("/api/user", userRoutes);
