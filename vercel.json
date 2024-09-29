@@ -2,10 +2,6 @@
   "version": 2,
   "builds": [
     {
-      "src": "server.js",
-      "use": "@vercel/node"
-    },
-    {
       "src": "NORMECA-angular/**/*",
       "use": "@vercel/static"
     }
@@ -13,11 +9,14 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "server.js"
+      "dest": "/api/$1.js"
     },
     {
       "src": "/(.*)",
-      "dest": "NORMECA-angular/index.html"
+      "dest": "/NORMECA-angular/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
     }
   ]
 }
