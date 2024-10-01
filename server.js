@@ -30,8 +30,11 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Serve the Angular app for all other routes not handled by API
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'NORMECA-angular', 'index.html'));
+    if (!req.url.startsWith('/api') && !req.url.startsWith('/uploads')) {
+        res.sendFile(path.join(__dirname, 'NORMECA-angular', 'index.html'));
+    }
 });
+
 
 // Start the backend server
 app.listen(port, () => {

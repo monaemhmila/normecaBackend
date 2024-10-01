@@ -20,11 +20,12 @@
       "dest": "/server.js"
     },
     {
+      "src": "/NORMECA-angular/(.*)",
+      "dest": "/NORMECA-angular/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/NORMECA-angular/index.html",  
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      }
+      "dest": "/NORMECA-angular/index.html"
     }
   ]
 }
