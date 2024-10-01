@@ -43,7 +43,7 @@ app.get('*', (req, res) => {
 });
 
 // Start the backend server
-const port =  3000;
+const port =  3039;
 app.listen(port, () => {
     console.log(`Server listening at http://localhost:${port}`);
 });
