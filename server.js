@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-// Serve the Angular build from the 'NORMECA-angular' folder
+// Serve static files first
 app.use(express.static(path.join(__dirname, 'NORMECA-angular')));
 
 const port = process.env.PORT || 3000; // Use the port specified by Vercel
@@ -30,11 +30,8 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Serve the Angular app for all other routes not handled by API
 app.get('*', (req, res) => {
-    if (!req.url.startsWith('/api') && !req.url.startsWith('/uploads')) {
-        res.sendFile(path.join(__dirname, 'NORMECA-angular', 'index.html'));
-    }
+    res.sendFile(path.join(__dirname, 'NORMECA-angular', 'index.html'));
 });
-
 
 // Start the backend server
 app.listen(port, () => {

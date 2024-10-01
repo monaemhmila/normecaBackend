@@ -21,11 +21,11 @@
     },
     {
       "src": "/NORMECA-angular/(.*)",
-      "dest": "/NORMECA-angular/$1"
+      "dest": "/NORMECA-angular/$1"  
     },
     {
       "src": "/(.*)",
-      "dest": "/NORMECA-angular/index.html"
+      "dest": "/NORMECA-angular/index.html"  
     }
   ]
 }
