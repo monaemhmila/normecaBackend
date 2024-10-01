@@ -13,7 +13,10 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/NORMECA-angular/$1"
+      "dest": "/NORMECA-angular/$1",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      }
     }
   ]
 }
