@@ -25,7 +25,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/NORMECA-angular/index.html"  
+      "dest": "/server.js"  
     }
   ]
 }
