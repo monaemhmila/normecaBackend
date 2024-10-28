@@ -3,17 +3,27 @@ const router = express.Router();
 const blogController = require('../Controller/blogs');
 const multer = require("multer");
 const path = require("path");
+const fs = require('fs');
 
+const uploadsDir = path.join(__dirname, '../uploads');
+if (!fs.existsSync(uploadsDir)) {
+    fs.mkdirSync(uploadsDir);
+}
+const sanitizeFilename = (filename) => {
+  return filename.replace(/[^a-z0-9-]/gi, '_').toLowerCase();
+};
 // Multer configuration for handling file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "uploads/");
+      cb(null, uploadsDir);
   },
   filename: (req, file, cb) => {
-    const ext = path.extname(file.originalname);
-    const uniqueId = Math.random().toString(36).substr(2, 9); // Generate a random unique ID
-    const filename = req.body.title.replace(/\s+/g, '-') + '-' + uniqueId + ext; // Concatenate blog title with unique ID
-    cb(null, filename);
+      const ext = path.extname(file.originalname);
+      const uniqueId = Math.random().toString(36).substr(2, 9); // Generate a random unique ID
+      const sanitizedTitle = sanitizeFilename(req.body.title);
+      const filename = `${sanitizedTitle}-${uniqueId}${ext}`; // Concatenate blog title with unique ID
+      console.log('Saving to:', path.join(uploadsDir, filename)); // Debugging log
+      cb(null, filename);
   },
 });
 
