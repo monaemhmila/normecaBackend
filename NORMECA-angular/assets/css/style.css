@@ -9386,7 +9386,7 @@ label.file-upload.image-btn {
 .popular-catergories-img span {
 	width: 60px;
 	height: 60px;
-	background: #FFF6F1;
+	background: #f2f0ff;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -18728,7 +18728,7 @@ h2.footer-title:after {
 	background: #f2f0ff;
 	height: 50%;
 	width: 100%;
-	bottom: 0;
+	top: 0;
 	left: 0;
 	z-index: 0;
 }
@@ -28075,9 +28075,7 @@ ul.download-item li:last-child {
 		width: 30%;
 	}
 
-	.work-set-image {
-		display: none;
-	}
+	
 
 	.payment-list label {
 		font-size: 15px;
