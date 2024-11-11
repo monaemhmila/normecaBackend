@@ -1,4 +1,5 @@
 const Article = require('../Model/article')
+
 exports.addArticle = async (req, res, next) => {
   try {
     const {
@@ -6,47 +7,49 @@ exports.addArticle = async (req, res, next) => {
       Designation,
       Categorie,
       description,
-
     } = req.body;
 
-    
-    console.log()
+    // Ensure that we have an array of image paths (if any images were uploaded)
+    const imagePaths = req.files ? req.files.map(file => file.path) : [];
 
     const newArticle = new Article({
       Reference,
       Designation,
       Categorie,
-      Photo: req.file ? req.file.path : undefined,
-      description
+      Photo: imagePaths,  // Store multiple image paths
+      description,
     });
 
     const savedArticle = await newArticle.save();
 
-
     res.status(200).json({
       success: true,
-      article: newArticle
+      article: savedArticle,
     });
   } catch (err) {
     next(err);
   }
 };
 
+
 exports.updateArticle = async (req, res, next) => {
   try {
     const articleId = req.params.id;
     let updatedData = req.body;
 
-    // Vérifiez si un fichier a été téléchargé et mettez à jour le champ 'Photo' si nécessaire
-    if (req.file) {
-      updatedData.Photo = req.file.filename; // Assurez-vous que le champ 'Photo' correspond à votre modèle Article
+    // If new files are uploaded, update the Photo field with an array of file paths
+    if (req.files && req.files.length > 0) {
+      updatedData.Photo = req.files.map(file => file.path);  // Use an array of file paths
     }
 
-    const updatedArticle = await Article.findByIdAndUpdate(
-      articleId,
-      updatedData,
-      { new: true }
-    );
+    const updatedArticle = await Article.findByIdAndUpdate(articleId, updatedData, { new: true });
+
+    if (!updatedArticle) {
+      return res.status(404).json({
+        success: false,
+        error_message: "Article not found",
+      });
+    }
 
     res.status(200).json({
       success: true,
@@ -56,6 +59,7 @@ exports.updateArticle = async (req, res, next) => {
     next(err);
   }
 };
+
 
 
 exports.deleteArticle = async (req, res, next) => {
@@ -72,32 +76,41 @@ exports.deleteArticle = async (req, res, next) => {
     next(err);
   }
 };
-
 exports.getAllArticles = async (req, res, next) => {
-    try {
-     
-  
-      const articles = await Article.find().populate('Categorie');
-      res.status(200).json({
-        success: true,
-        articles: articles,
-      });
-    } catch (err) {
-      next(err);
-    }
-  };
+  try {
+    const articles = await Article.find().populate('Categorie');
+
+    // Ensure 'Photo' is always an array (even if it's a single string)
+    articles.forEach(article => {
+      if (typeof article.Photo === 'string') {
+        article.Photo = [article.Photo];
+      }
+    });
+
+    res.status(200).json({
+      success: true,
+      articles: articles,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
 
 exports.getArticleById = async (req, res, next) => {
   try {
     const articleId = req.params.id;
-
     const article = await Article.findById(articleId).populate('Categorie');
 
     if (!article) {
       return res.status(404).json({
         success: false,
-        error_message: "article not found",
+        error_message: "Article not found",
       });
+    }
+
+    // Ensure 'Photo' is always an array
+    if (typeof article.Photo === 'string') {
+      article.Photo = [article.Photo];
     }
 
     res.status(200).json({
@@ -108,6 +121,7 @@ exports.getArticleById = async (req, res, next) => {
     next(err);
   }
 };
+
 exports.getFirstFourArticles = async (req, res, next) => {
   try {
     let filter = {};
@@ -118,6 +132,13 @@ exports.getFirstFourArticles = async (req, res, next) => {
     const articles = await Article.find(filter)
       .limit(4)
       .populate('Categorie');
+
+    // Ensure 'Photo' is always an array
+    articles.forEach(article => {
+      if (typeof article.Photo === 'string') {
+        article.Photo = [article.Photo];
+      }
+    });
 
     res.status(200).json({
       success: true,
