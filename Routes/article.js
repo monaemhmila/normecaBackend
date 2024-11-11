@@ -1,23 +1,24 @@
 const express = require('express');
 const router = express.Router();
 const articleController = require('../Controller/article');
-
 const multer = require("multer");
 const path = require("path");
 
-// Multer setup to handle multiple files
+// Multer setup to handle multiple files with unique names
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "uploads/");  // Directory where files will be stored
   },
   filename: (req, file, cb) => {
     const ext = path.extname(file.originalname);
-    cb(null, Date.now() + ext);  // Generate a unique filename based on timestamp
+    const uniqueSuffix = `${Date.now()}-${Math.round(Math.random() * 1E9)}`;
+    cb(null, `${uniqueSuffix}${ext}`);  // Generate a unique filename
   },
 });
 
-// Use multer to handle multiple file uploads (up to 10 files with field name 'photos')
-const upload = multer({ storage: storage }).array('photos', 10);  // Updated for multiple files
+
+const upload = multer({ storage: storage }).array('photos', 10);  // Allow up to 10 files
+
 
 // Route to add a new article with multiple images
 router.post('/articles', upload, articleController.addArticle);  // Using 'upload' middleware here

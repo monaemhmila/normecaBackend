@@ -2,34 +2,49 @@ const Article = require('../Model/article')
 
 exports.addArticle = async (req, res, next) => {
   try {
-    const {
-      Reference,
-      Designation,
-      Categorie,
-      description,
-    } = req.body;
+    const { Reference, Designation, Categorie, description } = req.body;
+    
+    // Log the incoming file data to ensure they are distinct
+    console.log('Files uploaded:', req.files);
 
-    // Ensure that we have an array of image paths (if any images were uploaded)
-    const imagePaths = req.files ? req.files.map(file => file.path) : [];
+    if (req.files && req.files.length > 0) {
+      // Collect file paths from uploaded files
+      const imagePaths = req.files.map(file => file.path);
 
-    const newArticle = new Article({
-      Reference,
-      Designation,
-      Categorie,
-      Photo: imagePaths,  // Store multiple image paths
-      description,
-    });
+      console.log('Image paths:', imagePaths);  // Check if the paths are unique
 
-    const savedArticle = await newArticle.save();
+      // Ensure the images are distinct
+      const uniqueImagePaths = [...new Set(imagePaths)];
+      if (uniqueImagePaths.length !== imagePaths.length) {
+        console.warn('There are duplicate file paths!');
+      }
 
-    res.status(200).json({
-      success: true,
-      article: savedArticle,
-    });
+        const newArticle = new Article({
+          Reference,
+          Designation,
+          Categorie,
+          Photo: uniqueImagePaths, // Save unique image paths
+          description,
+        });
+
+      const savedArticle = await newArticle.save();
+
+      res.status(200).json({
+        success: true,
+        article: savedArticle,
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        message: 'No images uploaded',
+      });
+    }
   } catch (err) {
     next(err);
   }
 };
+
+
 
 
 exports.updateArticle = async (req, res, next) => {
