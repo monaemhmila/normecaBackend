@@ -18,7 +18,7 @@ app.use(cors());
 // Serve the Angular build from the 'NORMECA-angular' folder
 app.use(express.static(path.join(__dirname, 'NORMECA-angular')));
 
-const port = 3000;
+const port = 3093;
 
 app.use(express.json());
 
